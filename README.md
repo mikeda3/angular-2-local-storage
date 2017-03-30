@@ -60,10 +60,17 @@ import { LocalStorageService } from 'angular-2-local-storage';
     // ...
 })
 export class SomeComponent {
-    constructor (
-        private localStorageService: LocalStorageService
-    ) {
-        // YAY!
+    constructor (private localStorageService: LocalStorageService) {
+        // To add to local storage
+        this.localStorageService.set('localStorageKey','Add this!');
+        // Read that value back
+        let value = localStorageService.get('localStorageKey');
+        // To remove a local storage
+        this.localStorageService.remove('localStorageKey');
+        // Removes all local storage
+        this.localStorageService.clearAll();
+        // You can also play with cookies the same way
+        this.localStorageService.cookie.set('localStorageKey','I am a cookie value now');
     }
 }
 
